@@ -126,5 +126,7 @@ def file_upload():
 
 
 if __name__ == "__main__":
+    if not os.path.exists(FILE_SAVE_PATH):
+        os.mkdir(FILE_SAVE_PATH)
     app.debug = True
     app.run(host='0.0.0.0')
