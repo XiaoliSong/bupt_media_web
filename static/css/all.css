@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#header{
+    height: 50px;
+    list-style: none;
+    text-align: center;
+    background: black;
+}
+
+#header li{
+    height: 50px;
+    display: inline-block;
+    background: #eee;
+    padding: 0 10px;
+}
+
+#header li.actived{
+    background: #ccc;
+}
+
+#header li:hover{
+    background: #bbb;
+}
+
+#header li a{
+    color: black;
+    line-height: 50px;
+    outline: none;
+    text-decoration: none;
+}
+
+#welcome{
+    margin: 40px 0;
+    text-align: center;
+}
+
+#footer{
+    margin: 30px 0 20px 0;
+    text-align: center;
+}
