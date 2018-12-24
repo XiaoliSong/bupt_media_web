@@ -1,6 +1,7 @@
 import os
 import flask
 import time
+from urllib.parse import quote
 
 
 ROOT_PATH = os.path.dirname(__file__)
@@ -88,11 +89,10 @@ def file_download():
     file_path = os.path.join(FILE_SAVE_PATH, file_name)
     if not os.path.exists(file_path):
         return json_response(code=1001, msg='文件不存在')
-
     response = flask.Response(generate_file(
         file_path=file_path), mimetype='application/gzip')
-    response.headers['Content-Disposition'] = "attachment; filename=%s" % (
-        file_name)
+    response.headers['Content-Disposition'] = "attachment; filename*=UTF-8''%s" % quote(file_name.encode(
+        'utf-8'))
     response.headers['content-length'] = os.stat(str(file_path)).st_size
     return response
 
@@ -102,7 +102,7 @@ def file_delete():
     file_name = flask.request.form.get("file_name", None)
     if file_name is None:
         return json_response(code=1000, msg='缺少参数：file_name')
-    if file_name.find('/') !=-1:
+    if file_name.find('/') != -1:
         return json_response(code=1002, msg='文件路径错误')
 
     file_path = os.path.join(FILE_SAVE_PATH, file_name)
@@ -116,7 +116,7 @@ def file_delete():
 def file_upload():
     file = flask.request.files['file']
     if file:
-        if file.filename.find('/') !=-1:
+        if file.filename.find('/') != -1:
             return json_response(code=1002, msg='文件路径错误')
         file_path = os.path.join(FILE_SAVE_PATH, file.filename)
         if os.path.exists(file_path):
