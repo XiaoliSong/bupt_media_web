@@ -31,9 +31,76 @@
     text-decoration: none;
 }
 
+#main{
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
 #welcome{
     margin: 40px 0;
     text-align: center;
+}
+
+.table_header{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.info_table,.list_table{
+    margin: 20px auto;
+    border-collapse: collapse;
+    max-width: 900px;
+}
+.info_table,.list_table th,td{
+	border:1px solid gray;
+	padding:5px 20px;
+}
+.info_table,.list_table tr:nth-child(even){
+	background: #eee;
+}
+.info_table td:first-child{
+	text-align: right;
+}
+.info_table td:last-child{
+	text-align: left;
+}
+.list_table td{
+    text-align: left
+}
+.list_table td:first-child{
+	text-align: center
+}
+
+
+th,td{
+	border:1px solid gray;
+	padding:5px 20px;
+}
+.info_table tr:nth-child(even){
+	background: #eee;
+}
+.info_table td:nth-child(odd){
+	text-align: right;
+}
+.info_table td:nth-child(even){
+	text-align: left;
+}
+
+
+.warning_noti{
+    text-align: center;
+    color: palevioletred;
+}
+
+.error_noti{
+    text-align: center;
+    color: red;
+}
+
+.okay_noti{
+    text-align: center;
+    color: green;
 }
 
 #footer{
