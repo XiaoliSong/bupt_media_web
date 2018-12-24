@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+button{
+    cursor: pointer;
+}
+
 #header{
     height: 50px;
     list-style: none;
@@ -51,6 +55,7 @@
     margin: 20px auto;
     border-collapse: collapse;
     max-width: 900px;
+    width: auto;
 }
 .info_table,.list_table th,td{
 	border:1px solid gray;
@@ -87,6 +92,29 @@ th,td{
 	text-align: left;
 }
 
+#file_upload_form{
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    max-width: 500px;
+    padding: 20px 0;
+    border: 1px solid #aaa;
+}
+#upload_btn{
+    background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    width: 60px;
+    height: 30px;
+}
+
+.delete_btn{
+    background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    width: 50px;
+    height: 25px;
+}
 
 .warning_noti{
     text-align: center;
