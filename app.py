@@ -1,7 +1,6 @@
 import os
 import flask
 import time
-from werkzeug import secure_filename
 
 
 ROOT_PATH = os.path.dirname(__file__)
@@ -103,7 +102,9 @@ def file_delete():
     file_name = flask.request.form.get("file_name", None)
     if file_name is None:
         return json_response(code=1000, msg='缺少参数：file_name')
-    file_name = secure_filename(file_name)
+    if file_name.find('/') !=-1:
+        return json_response(code=1002, msg='文件路径错误')
+
     file_path = os.path.join(FILE_SAVE_PATH, file_name)
     if not os.path.exists(file_path):
         return json_response(code=1001, msg='文件不存在')
@@ -115,8 +116,9 @@ def file_delete():
 def file_upload():
     file = flask.request.files['file']
     if file:
-        filename = secure_filename(file.filename)
-        file_path = os.path.join(FILE_SAVE_PATH, filename)
+        if file.filename.find('/') !=-1:
+            return json_response(code=1002, msg='文件路径错误')
+        file_path = os.path.join(FILE_SAVE_PATH, file.filename)
         if os.path.exists(file_path):
             return json_response(code=1002, msg='上传失败，文件已存在')
         file.save(file_path)
