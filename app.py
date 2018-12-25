@@ -66,6 +66,7 @@ def file_list():
             file['time'] = timestamp_to_time(os.path.getmtime(file_path))
             file['size'] = size_humanize(os.path.getsize(file_path))
             files.append(file)
+    files = sorted(files, key=lambda d:d['time'], reverse=True)
     data = {
         'files': files
     }
