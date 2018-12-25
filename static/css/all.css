@@ -64,9 +64,11 @@ button{
     padding:5px 20px;
 }
 @media all and (max-width:750px){
-    .list_table th,td{
-        border:1px solid gray;
+    .list_table th{
         padding:5px;
+    } 
+    .list_table td{
+        padding:5px 8px;
     }
 }
 
