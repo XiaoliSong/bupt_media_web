@@ -21,11 +21,11 @@ button{
 }
 
 #header li.actived{
-    background: #ccc;
+    background: #888;
 }
 
 #header li:hover{
-    background: #bbb;
+    background: #777;
 }
 
 #header li a{
@@ -56,14 +56,29 @@ button{
     border-collapse: collapse;
     max-width: 900px;
     width: auto;
+    word-break: break-all;
 }
-.info_table,.list_table th,td{
-	border:1px solid gray;
-	padding:5px 20px;
+
+.list_table th,td{
+    border:1px solid gray;
+    padding:5px 20px;
 }
-.info_table,.list_table tr:nth-child(even){
+@media all and (max-width:750px){
+    .list_table th,td{
+        border:1px solid gray;
+        padding:5px;
+    }
+}
+
+.info_table th,td{
+    border:1px solid gray;
+    padding:5px 20px;
+}
+
+.list_table tr:nth-child(even){
 	background: #eee;
 }
+
 .info_table td:first-child{
 	text-align: right;
 }
@@ -77,20 +92,6 @@ button{
 	text-align: center
 }
 
-
-th,td{
-	border:1px solid gray;
-	padding:5px 20px;
-}
-.info_table tr:nth-child(even){
-	background: #eee;
-}
-.info_table td:nth-child(odd){
-	text-align: right;
-}
-.info_table td:nth-child(even){
-	text-align: left;
-}
 
 #file_upload_form{
     text-align: center;
